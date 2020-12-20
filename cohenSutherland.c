@@ -13,9 +13,9 @@ const int TOP=8;
 double  xmin=50,ymin=50,xmax=100,ymax=100;
 
 void init(){
-    glClearColor(0,0,0,0);
+    glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-    gluOrtho2D(0,500,0,500);
+    gluOrtho2D(0,250,0,250);
     glFlush();
 }
 
@@ -88,6 +88,7 @@ void CohenSutherlandline(double x0,double a,double x1,double b){
         glEnd();
     
         glBegin(GL_LINES);
+        glColor3f(0, 1, 0);
         glVertex2f(100+x0,100+a);
         glVertex2f(100+x1,100+b);
         glEnd();
@@ -107,6 +108,7 @@ void display(){
     glEnd();
 
     glBegin(GL_LINES);
+    glColor3f(0, 1, 0);
     glVertex2f(x0,a);
     glVertex2f(x1,b);
     glEnd();
@@ -117,6 +119,7 @@ void display(){
 
 int main(int argc, char **argv){
     glutInit(&argc,argv);
+    glutInitWindowSize(750, 750);
     glutCreateWindow("Cohen Sutherland line clipping window");
     init();
     glutDisplayFunc(display);

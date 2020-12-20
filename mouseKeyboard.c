@@ -3,7 +3,7 @@
 void init(){
     glClearColor(1,1,1,1);
     glClear(GL_COLOR_BUFFER_BIT);
-    gluOrtho2D(0, 1280, 0, 720);
+    gluOrtho2D(0, 1280, 720, 0);
     glFlush();
 }
 
@@ -39,10 +39,10 @@ void square(int x, int y){
 
 void triangle(int x, int y){
     glBegin(GL_POLYGON);
-    glColor3f(1.0, 0.0, 0.0);
+    glColor3f(1.0, 1.0, 0.0);
     glVertex2f(x, y);
     glVertex2f(x + 100, y);
-    glVertex2f(x + 50, y + 86);
+    glVertex2f(x + 50, y - 86);
     glEnd();
     glFlush();
 }
@@ -53,9 +53,9 @@ void pentagon(int x, int y){
     glColor3f(0.0, 1.0, 0.0);
     glVertex2f(x, y);
     glVertex2f(x + 100, y);
-    glVertex2f(x + 100, y + 100);
-    glVertex2f(x + 50, y + 170);
-    glVertex2f(x, y + 100);
+    glVertex2f(x + 100, y - 100);
+    glVertex2f(x + 50, y - 170);
+    glVertex2f(x, y - 100);
     glEnd();
     glFlush();
 }

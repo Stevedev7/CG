@@ -6,9 +6,9 @@ double xmin=50,xmax=100,ymin=50,ymax=100;
 double r[4],p[4],q[4];
 
 void init(){
-	glClearColor(0,0,0,1);
+	glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-	gluOrtho2D(0,500,0,500);
+	gluOrtho2D(0,250,0,250);
 }
 
 double maximum(){
@@ -74,19 +74,19 @@ void liang_barsky(double x0,double y00,double x1,double y11){
 	if(t1>t2){
 	  glBegin(GL_LINE_LOOP);
 	  glColor3f(1,0,0);
-	  glVertex2f(xmin+200,ymin+200);
-	  glVertex2f(xmax+200,ymin+200);
-	  glVertex2f(xmax+200,ymax+200);
-	  glVertex2f(xmin+200,ymax+200);
+	  glVertex2f(xmin+100,ymin+100);
+	  glVertex2f(xmax+100,ymin+100);
+	  glVertex2f(xmax+100,ymax+100);
+	  glVertex2f(xmin+100,ymax+100);
 	  glEnd();
 	} else{
 	    if(reject==1){
 	        glBegin(GL_LINE_LOOP);
 	        glColor3f(1,0,0);
-	        glVertex2f(xmin+200,ymin+200);
-	        glVertex2f(xmax+200,ymin+200);
-	        glVertex2f(xmax+200,ymax+200);
-	        glVertex2f(xmin+200,ymax+200);
+	        glVertex2f(xmin+100,ymin+100);
+	        glVertex2f(xmax+100,ymin+100);
+	        glVertex2f(xmax+100,ymax+100);
+	        glVertex2f(xmin+100,ymax+100);
 	        glEnd();
         }else{
             x1=x+(dx*t2);
@@ -97,16 +97,16 @@ void liang_barsky(double x0,double y00,double x1,double y11){
 
 	        glBegin(GL_LINE_LOOP);
 	        glColor3f(1,0,0);
-	        glVertex2f(xmin+200,ymin+200);
-	        glVertex2f(xmax+200,ymin+200);
-	        glVertex2f(xmax+200,ymax+200);
-	        glVertex2f(xmin+200,ymax+200);
+	        glVertex2f(xmin+100,ymin+100);
+	        glVertex2f(xmax+100,ymin+100);
+	        glVertex2f(xmax+100,ymax+100);
+	        glVertex2f(xmin+100,ymax+100);
 	        glEnd();
 
 	        glBegin(GL_LINES);
 	        glColor3f(0,1,0);
-	        glVertex2f(x0+200,y00+200);
-	        glVertex2f(x1+200,y11+200);
+	        glVertex2f(x0+100,y00+100);
+	        glVertex2f(x1+100,y11+100);
 	        glEnd();
 	        glFlush();
 
