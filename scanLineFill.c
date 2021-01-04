@@ -13,7 +13,7 @@ void edgeDetect(float x1, float y1, float x2, float y2, int * leftEdges, int * r
     float slopeInverse, x, temp;
     int i;
 
-    if((y2 - y1) < 0){
+    if(y2 < y1){
         temp = y1;
         y1 = y2;
         y2 = temp;
@@ -23,7 +23,7 @@ void edgeDetect(float x1, float y1, float x2, float y2, int * leftEdges, int * r
         x2 = temp;
     }
 
-    if((y2 - y1) != 0){
+    if(y2 != y1){
         slopeInverse = (x2 - x1) / (y2 - y1);
     } else{
         slopeInverse = (x2 - x1);
@@ -31,11 +31,11 @@ void edgeDetect(float x1, float y1, float x2, float y2, int * leftEdges, int * r
     x = x1;
     for ( i = y1; i <= y2; i++){
         
-        if(x < (float)leftEdges[i]){
-            leftEdges[i] = (int)x;
+        if(x < leftEdges[i]){
+            leftEdges[i] = x;
         }
-        if(x > (float)rightEdges[i]){
-            rightEdges[i] = (int)x;
+        if(x > rightEdges[i]){
+            rightEdges[i] = x;
         }
         x += slopeInverse;
     }
@@ -53,7 +53,7 @@ void drawPixel(int x, int y){
 void scanLineFill(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
     int leftEdges[1280], rightEdges[1280], i, j;
 
-    for(i = 0; i <1280; i++){
+    for(i = 0; i < 1280; i++){
         leftEdges[i] = 1280;
         rightEdges[i] = 0;
     }
