@@ -23,7 +23,7 @@ float vertices[][3] = {
 int axis = 2;
 
 void init(){
-	glClearColor(1, 1, 1, 1);
+	glClearColor(0.69, 0.69, 0.69, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 }

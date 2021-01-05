@@ -6,7 +6,7 @@ int x00, y00, x01, y01;
 void init(){
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-    gluOrtho2D(-640, 639, -360, 359);
+    gluOrtho2D(0, 1280, 0, 720);
     glFlush();
 }
 
@@ -20,14 +20,11 @@ void writepixel(int x, int y){
 }
 
 void display(){
- 
-    int i, j;
-
-    float dx = x01 - x00; 
+ float dx = x01 - x00; 
     float dy = y01 - y00; 
     float d = 2 * dy - dx;
-    float incrE = dy;
-    float incrNE = dy - dx;
+    float E = dy;
+    float NE = dy - dx;
   
     int x = x00;
     int y = y00;
@@ -36,13 +33,12 @@ void display(){
 
     while(x < x01){
         if(d <= 0){
- 	          d = d + 2 * incrE;
-            x = x + 1;
+ 	          d += 2 * E;
         } else{
-            d = d + 2 * incrNE;
-            x = x + 1;
-            y = y + 1;
+            d += 2 * NE;
+            y++;
         }
+        x++;
         writepixel(x, y);
     }
 }
